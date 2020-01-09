@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material';
+
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -9,9 +11,13 @@ import { AuthService } from '../auth.service';
 
 export class NavBarComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(
+    public auth: AuthService,
+
+    ) { }
 
   ngOnInit() {
   }
 
-}
+
+} 

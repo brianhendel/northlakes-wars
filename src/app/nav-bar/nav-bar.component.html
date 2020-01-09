@@ -1,6 +1,18 @@
-<header>
-    <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
-    <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
-    <a routerLink="/">Home</a>&nbsp;
-    <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
-  </header>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation"></mat-sidenav>
+  <mat-sidenav-content>
+    <div xFlex fxLayout>
+      <div fxFlex fxLayout fxLayoutAlign="start">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div fxFlex fxLayout fxLayoutAlign="end">
+        <button mat-raised-button color="primary" routerlink="profile" *ngIf="auth.loggedIn"><mat-icon>person</mat-icon></button>
+        <button mat-raised-button color="primary" (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
+        <button mat-raised-button color="primary" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
